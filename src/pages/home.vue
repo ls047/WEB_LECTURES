@@ -1,26 +1,26 @@
 <template>
-  <div ref="rootRef" class="mx-auto max-w-5xl px-4 py-16" dir="rtl">
-    <header class="hero mb-16 text-center">
-      <div class="hero-badge mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl bg-primary/10">
-        <span class="text-3xl">📚</span>
+  <div ref="rootRef" class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-5 sm:py-16" dir="rtl">
+    <header class="hero mb-10 text-center sm:mb-16">
+      <div class="hero-badge mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-primary/10 sm:mb-6 sm:size-16">
+        <span class="text-2xl sm:text-3xl">📚</span>
       </div>
-      <h1 class="hero-title text-text mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+      <h1 class="hero-title text-text mb-3 text-3xl font-extrabold tracking-tight sm:mb-4 sm:text-5xl">
         محاضرات تطوير الويب
       </h1>
-      <p class="hero-subtitle text-text-secondary mx-auto max-w-xl text-lg leading-relaxed">
+      <p class="hero-subtitle text-text-secondary mx-auto max-w-xl text-base leading-relaxed sm:text-lg">
         محاضرات تفاعلية بالعربية — أقسام واضحة وحركات GSAP تساعدك على التركيز أثناء التعلّم.
       </p>
     </header>
 
-    <section v-if="publishedLectures.length" class="space-y-4">
-      <h2 class="text-text mb-6 text-sm font-semibold">المحاضرات</h2>
+    <section v-if="publishedLectures.length" class="space-y-3 sm:space-y-4">
+      <h2 class="text-text mb-4 text-sm font-semibold sm:mb-6">المحاضرات</h2>
       <RouterLink
         v-for="item in publishedLectures"
         :key="item.id"
         :to="`/lectures/${item.slug}`"
-        class="lecture-card group flex flex-col gap-2 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-primary/40 hover:bg-surface/80 sm:flex-row sm:items-center sm:justify-between"
+        class="lecture-card group flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 transition-colors hover:border-primary/40 hover:bg-surface/80 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-6"
       >
-        <div class="text-start">
+        <div class="min-w-0 text-start">
           <div v-if="item.tags?.length" class="mb-2 flex flex-wrap gap-2">
             <span
               v-for="tag in item.tags"
@@ -30,12 +30,14 @@
               {{ tag }}
             </span>
           </div>
-          <h3 class="text-text group-hover:text-primary text-xl font-bold transition-colors">
+          <h3 class="text-text group-hover:text-primary text-lg font-bold transition-colors sm:text-xl">
             {{ item.title }}
           </h3>
           <p class="text-text-secondary mt-1 text-sm leading-relaxed">{{ item.description }}</p>
         </div>
-        <span class="text-primary shrink-0 text-sm font-medium">ابدأ المحاضرة ←</span>
+        <span class="text-primary w-full shrink-0 text-center text-sm font-medium sm:w-auto sm:text-start">
+          ابدأ المحاضرة ←
+        </span>
       </RouterLink>
     </section>
 

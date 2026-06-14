@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div
-      class="pointer-events-none fixed inset-x-0 top-0 z-[10000] flex flex-col items-end gap-2.5 p-4 sm:inset-x-auto sm:end-4 sm:top-4"
+      class="pointer-events-none fixed inset-x-0 top-0 z-[10000] flex flex-col items-end gap-2.5 p-4 pt-[max(1rem,env(safe-area-inset-top))] sm:inset-x-auto sm:end-4 sm:top-4 sm:pt-4"
       role="log"
       aria-live="polite"
       aria-label="Notifications"

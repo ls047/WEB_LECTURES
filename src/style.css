@@ -203,6 +203,8 @@ html.theme-switching *::after {
 
 body {
   font-family: var(--font-primary);
+  overflow-x: clip;
+  min-width: 0;
 }
 
 /* Custom scrollbar - theme-aware, slim & smooth.
@@ -210,6 +212,7 @@ body {
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) transparent;
+  overflow-x: clip;
 }
 
 *::-webkit-scrollbar {
