@@ -8,7 +8,7 @@
         محاضرات تطوير الويب
       </h1>
       <p class="hero-subtitle text-text-secondary mx-auto max-w-xl text-base leading-relaxed sm:text-lg">
-        محاضرات تفاعلية بالعربية — أقسام واضحة وحركات GSAP تساعدك على التركيز أثناء التعلّم.
+        محاضرات تفاعلية بالعربية
       </p>
     </header>
 
