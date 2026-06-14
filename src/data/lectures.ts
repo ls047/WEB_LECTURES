@@ -11,6 +11,16 @@ export const lectures: Lecture[] = [
     tags: ['HTML', 'أساسيات', 'تطوير الويب'],
     published: true,
   },
+  {
+    id: '2',
+    slug: 'web-html-forms-css',
+    title: 'HTML عملي + النماذج (Forms) + مقدمة في CSS',
+    description:
+      'محاور: مراجعة HTML، الصور، القوائم، النماذج وحقول الإدخال، مقدمة CSS، ربط ملفات التنسيق — مع تطبيق عملي لصفحة تعريف شخصية.',
+    order: 2,
+    tags: ['HTML', 'Forms', 'CSS', 'أساسيات'],
+    published: true,
+  },
 ];
 
 export const getLectureBySlug = (slug: string): Lecture | undefined =>
