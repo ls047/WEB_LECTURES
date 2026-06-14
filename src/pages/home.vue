@@ -20,20 +20,28 @@
         :to="`/lectures/${item.slug}`"
         class="lecture-card group flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 transition-colors hover:border-primary/40 hover:bg-surface/80 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-6"
       >
-        <div class="min-w-0 text-start">
-          <div v-if="item.tags?.length" class="mb-2 flex flex-wrap gap-2">
-            <span
-              v-for="tag in item.tags"
-              :key="tag"
-              class="rounded-full bg-muted px-2.5 py-0.5 text-xs text-text-secondary"
-            >
-              {{ tag }}
-            </span>
+        <div class="flex min-w-0 items-start gap-3 sm:gap-4">
+          <span
+            class="bg-primary/10 text-primary flex size-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold sm:size-11 sm:text-base"
+            aria-hidden="true"
+          >
+            {{ toArabicNumeral(item.order) }}
+          </span>
+          <div class="min-w-0 text-start">
+            <div v-if="item.tags?.length" class="mb-2 flex flex-wrap gap-2">
+              <span
+                v-for="tag in item.tags"
+                :key="tag"
+                class="rounded-full bg-muted px-2.5 py-0.5 text-xs text-text-secondary"
+              >
+                {{ tag }}
+              </span>
+            </div>
+            <h3 class="text-text group-hover:text-primary text-lg font-bold transition-colors sm:text-xl">
+              {{ item.title }}
+            </h3>
+            <p class="text-text-secondary mt-1 text-sm leading-relaxed">{{ item.description }}</p>
           </div>
-          <h3 class="text-text group-hover:text-primary text-lg font-bold transition-colors sm:text-xl">
-            {{ item.title }}
-          </h3>
-          <p class="text-text-secondary mt-1 text-sm leading-relaxed">{{ item.description }}</p>
         </div>
         <span class="text-primary w-full shrink-0 text-center text-sm font-medium sm:w-auto sm:text-start">
           ابدأ المحاضرة ←
@@ -60,6 +68,11 @@ import { gsap, useGsapOnMount } from '@/composables/useGsap';
 
 const rootRef = ref<HTMLElement | null>(null);
 const publishedLectures = getPublishedLectures();
+
+const ARABIC_DIGITS = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'] as const;
+
+const toArabicNumeral = (value: number) =>
+  String(value).replace(/\d/g, (digit) => ARABIC_DIGITS[Number(digit)]);
 
 useGsapOnMount(() => {
   gsap.from('.hero-badge', {
