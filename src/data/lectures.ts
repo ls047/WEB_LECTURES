@@ -21,6 +21,16 @@ export const lectures: Lecture[] = [
     tags: ['HTML', 'Forms', 'CSS', 'أساسيات'],
     published: true,
   },
+  {
+    id: '3',
+    slug: 'web-css-fundamentals',
+    title: 'أساسيات CSS',
+    description:
+      'محاور: بنية قواعد CSS، Selectors، الألوان والخلفيات، تنسيق النصوص، الحدود، Margin و Padding — مع تطبيق عملي لبطاقة شخصية.',
+    order: 3,
+    tags: ['CSS', 'أساسيات', 'تنسيق'],
+    published: true,
+  },
 ];
 
 export const getLectureBySlug = (slug: string): Lecture | undefined =>
